@@ -14,21 +14,19 @@ get_header( 'buddypress' ); ?>
 
 			<?php do_action( 'bp_before_member_home_content' ); ?>
 
-			<div id="item-header" role="complementary">
+			<div id="item-header" class="row" role="complementary">
 
 				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
 
 			</div><!-- #item-header -->
 
 			<div id="item-nav">
-				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
-					<ul>
+				<div class="item-list-tabs no-ajax btn-group" id="object-nav" role="navigation">
 
-						<?php bp_get_displayed_user_nav(); ?>
+						<?php shoestrap_bp_get_displayed_user_nav(); ?>
 
 						<?php do_action( 'bp_member_options_nav' ); ?>
 
-					</ul>
 				</div>
 			</div><!-- #item-nav -->
 
