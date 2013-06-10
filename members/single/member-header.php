@@ -52,4 +52,4 @@
 
 <?php do_action( 'bp_after_member_header' ); ?>
 
-<?php do_action( 'template_notices' ); ?>
+<?php do_action( 'template_notices' );

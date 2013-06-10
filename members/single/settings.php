@@ -12,9 +12,9 @@
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
 	<ul>
 		<?php if ( bp_core_can_edit_settings() ) : ?>
-		
+
 			<?php bp_get_options_nav(); ?>
-		
+
 		<?php endif; ?>
 	</ul>
 </div>
@@ -34,5 +34,3 @@ else :
 	locate_template( array( 'members/single/plugins.php' ), true );
 
 endif;
-
-?>

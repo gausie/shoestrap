@@ -49,4 +49,4 @@ else :
 
 	<?php do_action( 'bp_after_member_friends_content' ); ?>
 
-<?php endif; ?>
+<?php endif;

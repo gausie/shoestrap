@@ -37,4 +37,4 @@
 
 </div><!-- .blogs.myblogs -->
 
-<?php do_action( 'bp_after_member_blogs_content' ); ?>
+<?php do_action( 'bp_after_member_blogs_content' );

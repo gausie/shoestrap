@@ -110,4 +110,4 @@
 
 <?php endif; ?>
 
-<?php do_action( 'bp_after_members_loop' ); ?>
+<?php do_action( 'bp_after_members_loop' );

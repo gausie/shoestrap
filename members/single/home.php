@@ -9,9 +9,6 @@
 
 get_header( 'buddypress' ); ?>
 
-	<div id="content">
-		<div class="padder">
-
 			<?php do_action( 'bp_before_member_home_content' ); ?>
 
 			<div id="item-header" class="row" role="complementary">
@@ -70,8 +67,4 @@ get_header( 'buddypress' ); ?>
 
 			<?php do_action( 'bp_after_member_home_content' ); ?>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
-
-<?php get_sidebar( 'buddypress' ); ?>
-<?php get_footer( 'buddypress' ); ?>
+<?php get_footer( 'buddypress' );
