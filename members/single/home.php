@@ -20,7 +20,7 @@ get_header( 'buddypress' ); ?>
 			<div id="item-nav">
 				<div class="item-list-tabs no-ajax navbar" id="object-nav" role="navigation">
           <ul class="nav navbar-nav">
-						<?php bp_get_displayed_user_nav(); ?>
+						<?php shoestrap_bp_get_displayed_user_nav(); ?>
 
 						<?php do_action( 'bp_member_options_nav' ); ?>
           </ul>
