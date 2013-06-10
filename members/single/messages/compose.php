@@ -14,6 +14,8 @@
 		<input type="checkbox" id="send-notice" name="send-notice" value="1" /> <?php _e( "This is a notice to all users.", "buddypress" ); ?>
 	<?php endif; ?>
 
+  <div class="clearfix"></div>
+
 	<label for="subject"><?php _e( 'Subject', 'buddypress'); ?></label>
 	<input type="text" name="subject" id="subject" value="<?php bp_messages_subject_value(); ?>" />
 
@@ -25,7 +27,7 @@
 	<?php do_action( 'bp_after_messages_compose_content' ); ?>
 
 	<div class="submit">
-		<input type="submit" value="<?php _e( "Send Message", 'buddypress' ); ?>" name="send" id="send" />
+		<input class="btn btn-primary pull-right" type="submit" value="<?php _e( "Send Message", 'buddypress' ); ?>" name="send" id="send" />
 	</div>
 
 	<?php wp_nonce_field( 'messages_send_message' ); ?>
