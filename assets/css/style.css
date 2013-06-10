@@ -5231,3 +5231,20 @@ fieldset[disabled] #social-sharing .shareme .box {
   color: rgba(255,255,255,0.9);
   width: auto;
 }
+ul.bp-nav li a span {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #999999;
+  border-radius: 10px;
+}
+ul.bp-nav li a span:empty {
+  display: none;
+}
