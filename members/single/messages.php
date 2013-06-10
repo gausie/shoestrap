@@ -9,20 +9,15 @@
 
 ?>
 
-<div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul>
+<div class="item-list-tabs no-ajax btn-group" id="subnav" role="navigation">
 
-		<?php bp_get_options_nav(); ?>
-
-	</ul>
-
-	<?php if ( bp_is_messages_inbox() || bp_is_messages_sentbox() ) : ?>
-
-		<div class="message-search"><?php bp_message_search_form(); ?></div>
-
-	<?php endif; ?>
+	<?php shoestrap_bp_get_options_nav(); ?>
 
 </div><!-- .item-list-tabs -->
+
+<?php if ( bp_is_messages_inbox() || bp_is_messages_sentbox() ) : ?>
+	<div class="message-search pull-right"><?php shoestrap_bp_message_search_form(); ?></div>
+<?php endif; ?>
 
 <?php
 

@@ -87,3 +87,23 @@ function shoestrap_bp_get_displayed_user_nav() {
     echo apply_filters_ref_array( 'bp_get_displayed_user_nav_' . $user_nav_item['css_id'], array( '<li id="' . $user_nav_item['css_id'] . '-personal-li" ' . $selected . '><a id="user-' . $user_nav_item['css_id'] . '" href="' . $link . '">' . $user_nav_item['name'] . '</a></li>', &$user_nav_item ) );
   }
 }
+
+/**
+ * Output the Private Message search form
+ *
+ * @since BuddyPress (1.6)
+ */
+function shoestrap_bp_message_search_form() {
+
+  $default_search_value = bp_get_search_default_text( 'messages' );
+  $search_value         = !empty( $_REQUEST['s'] ) ? stripslashes( $_REQUEST['s'] ) : $default_search_value; ?>
+
+  <form action="" method="get" id="search-message-form" class="input-group">
+    <input type="text" name="s" id="messages_search" <?php if ( $search_value === $default_search_value ) : ?>placeholder="<?php echo esc_html( $search_value ); ?>"<?php endif; ?> <?php if ( $search_value !== $default_search_value ) : ?>value="<?php echo esc_html( $search_value ); ?>"<?php endif; ?> />
+    <span class="input-group-btn">
+      <input class="btn btn-info" type="submit" id="messages_search_submit" name="messages_search_submit" value="<?php _e( 'Search', 'buddypress' ) ?>" />
+    </span>
+  </form>
+
+<?php
+}

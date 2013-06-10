@@ -5248,3 +5248,8 @@ ul.bp-nav li a span {
 ul.bp-nav li a span:empty {
   display: none;
 }
+#search-message-form input,
+#search-message-form span {
+  float: left;
+  width: auto;
+}
