@@ -107,3 +107,47 @@ function shoestrap_bp_message_search_form() {
 
 <?php
 }
+
+/**
+ * Display the activity delete link.
+ *
+ * @since BuddyPress (1.1)
+ *
+ * @uses bp_get_activity_delete_link()
+ */
+function shoestrap_bp_activity_delete_link() {
+  echo shoestrap_bp_get_activity_delete_link();
+}
+
+/**
+ * Return the activity delete link.
+ *
+ * @since BuddyPress (1.1)
+ *
+ * @global object $activities_template {@link BP_Activity_Template}
+ * @uses bp_get_root_domain()
+ * @uses bp_get_activity_root_slug()
+ * @uses bp_is_activity_component()
+ * @uses bp_current_action()
+ * @uses add_query_arg()
+ * @uses wp_get_referer()
+ * @uses wp_nonce_url()
+ * @uses apply_filters() To call the 'bp_get_activity_delete_link' hook
+ *
+ * @return string $link Activity delete link. Contains $redirect_to arg if on single activity page.
+ */
+function shoestrap_bp_get_activity_delete_link() {
+  global $activities_template;
+
+  $url   = bp_get_root_domain() . '/' . bp_get_activity_root_slug() . '/delete/' . $activities_template->activity->id;
+  $class = 'delete-activity';
+
+  // Determine if we're on a single activity page, and customize accordingly
+  if ( bp_is_activity_component() && is_numeric( bp_current_action() ) ) {
+    $url   = add_query_arg( array( 'redirect_to' => wp_get_referer() ), $url );
+    $class = 'delete-activity-single';
+  }
+
+  $link = '<a href="' . wp_nonce_url( $url, 'bp_activity_delete_link' ) . '" class="btn btn-danger btn-small item-button bp-secondary-action ' . $class . ' confirm" rel="nofollow">' . __( 'Delete', 'buddypress' ) . '</a>';
+  return apply_filters( 'bp_get_activity_delete_link', $link );
+}

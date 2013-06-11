@@ -11,7 +11,7 @@ get_header( 'buddypress' ); ?>
 
 			<?php do_action( 'bp_before_member_home_content' ); ?>
 
-			<div id="item-header" class="row" role="complementary">
+			<div id="item-header" class="media" role="complementary">
 
 				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
 

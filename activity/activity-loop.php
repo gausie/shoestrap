@@ -25,7 +25,9 @@
 
 	<?php if ( empty( $_POST['page'] ) ) : ?>
 
-		<ul id="activity-stream" class="activity-list item-list">
+    <div class="clearfix"></div>
+
+		<div id="activity-stream" class="list-group activity-list item-list">
 
 	<?php endif; ?>
 
@@ -45,7 +47,7 @@
 
 	<?php if ( empty( $_POST['page'] ) ) : ?>
 
-		</ul>
+		</div>
 
 	<?php endif; ?>
 
