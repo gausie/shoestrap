@@ -1,6 +1,6 @@
 <?php do_action( 'bp_before_member_header' ); ?>
 
-<div id="item-header-avatar" class="col col-lg-4">
+<div id="item-header-avatar" class="pull-left media-object">
 	<a href="<?php bp_displayed_user_link(); ?>">
 
 		<?php bp_displayed_user_avatar( 'type=full' ); ?>
@@ -8,9 +8,9 @@
 	</a>
 </div><!-- #item-header-avatar -->
 
-<div id="item-header-content" class="col col-lg-8">
+<div id="item-header-content" class="media-body">
 
-	<h2>
+	<h2 class="media-heading">
 		<a href="<?php bp_displayed_user_link(); ?>"><?php bp_displayed_user_fullname(); ?></a>
 	</h2>
 
