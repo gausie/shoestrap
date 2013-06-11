@@ -9,22 +9,22 @@
 
 get_header( 'buddypress' ); ?>
 
-	<div id="content">
+	<div id="content row">
 		<div class="padder">
 
 			<?php do_action( 'bp_before_member_settings_template' ); ?>
 
-			<div id="item-header">
+			<div id="item-header" class="row" role="complementary">
 
 				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
 
 			</div><!-- #item-header -->
 
 			<div id="item-nav">
-				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
-					<ul>
+				<div class="item-list-tabs no-ajax navbar" id="object-nav" role="navigation">
+					<ul class="nav navbar-nav bp-nav">
 
-						<?php bp_get_displayed_user_nav(); ?>
+						<?php shoestrap_bp_get_displayed_user_nav(); ?>
 
 						<?php do_action( 'bp_member_options_nav' ); ?>
 
@@ -37,21 +37,22 @@ get_header( 'buddypress' ); ?>
 				<?php do_action( 'bp_before_member_body' ); ?>
 
 				<div class="item-list-tabs no-ajax" id="subnav">
-					<ul>
+					<div class="btn-group pull-left">
 
-						<?php bp_get_options_nav(); ?>
+						<?php shoestrap_bp_get_options_nav(); ?>
 
 						<?php do_action( 'bp_member_plugin_options_nav' ); ?>
 
-					</ul>
+					</div>
 				</div><!-- .item-list-tabs -->
 
-				<h3><?php _e( 'General Settings', 'buddypress' ); ?></h3>
-
+				<div class="clearfix"></div>
+				<br />
 				<?php do_action( 'bp_template_content' ); ?>
 
 				<form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>" method="post" class="standard-form" id="settings-form">
-
+				<fieldset>
+				<legend><?php _e( 'General Settings', 'buddypress' ); ?></legend>
 					<?php if ( !is_super_admin() ) : ?>
 
 						<label for="pwd"><?php _e( 'Current Password <span>(required to update email or change current password)</span>', 'buddypress' ); ?></label>
@@ -61,21 +62,23 @@ get_header( 'buddypress' ); ?>
 
 					<label for="email"><?php _e( 'Account Email', 'buddypress' ); ?></label>
 					<input type="text" name="email" id="email" value="<?php echo bp_get_displayed_user_email(); ?>" class="settings-input" />
-
+					<br />
 					<label for="pass1"><?php _e( 'Change Password <span>(leave blank for no change)</span>', 'buddypress' ); ?></label>
-					<input type="password" name="pass1" id="pass1" size="16" value="" class="settings-input small" /> &nbsp;<?php _e( 'New Password', 'buddypress' ); ?><br />
-					<input type="password" name="pass2" id="pass2" size="16" value="" class="settings-input small" /> &nbsp;<?php _e( 'Repeat New Password', 'buddypress' ); ?>
-
+					<div>
+						<input type="password" name="pass1" id="pass1" size="16" value="" class="settings-input small col-lg-6" placeholder="<?php _e( 'New Password', 'buddypress' ); ?>"/> 
+						<input type="password" name="pass2" id="pass2" size="16" value="" class="settings-input small col-lg-6" placeholder="<?php _e( 'Repeat New Password', 'buddypress' ); ?>"/>
+					</div>
+					
 					<?php do_action( 'bp_core_general_settings_before_submit' ); ?>
 
 					<div class="submit">
-						<input type="submit" name="submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?>" id="submit" class="auto" />
+						<input type="submit" name="submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?>" id="submit" class="btn btn-primary pull-right auto" />
 					</div>
 
 					<?php do_action( 'bp_core_general_settings_after_submit' ); ?>
 
 					<?php wp_nonce_field( 'bp_settings_general' ); ?>
-
+					</fieldset>
 				</form>
 
 				<?php do_action( 'bp_after_member_body' ); ?>
@@ -86,7 +89,5 @@ get_header( 'buddypress' ); ?>
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
-
-<?php get_sidebar( 'buddypress' ); ?>
 
 <?php get_footer( 'buddypress' ); ?>
