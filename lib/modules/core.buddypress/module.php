@@ -151,3 +151,43 @@ function shoestrap_bp_get_activity_delete_link() {
   $link = '<a href="' . wp_nonce_url( $url, 'bp_activity_delete_link' ) . '" class="btn btn-danger btn-small item-button bp-secondary-action ' . $class . ' confirm" rel="nofollow">' . __( 'Delete', 'buddypress' ) . '</a>';
   return apply_filters( 'bp_get_activity_delete_link', $link );
 }
+
+function shoestrap_bp_messages_options() {
+?>
+  <div class="input-prepend">
+    <?php _e( 'Select:', 'buddypress' ) ?>
+    <select name="message-type-select" id="message-type-select">
+      <option value=""></option>
+      <option value="read"><?php _e('Read', 'buddypress') ?></option>
+      <option value="unread"><?php _e('Unread', 'buddypress') ?></option>
+      <option value="all"><?php _e('All', 'buddypress') ?></option>
+    </select> &nbsp;
+
+    <?php if ( ! bp_is_current_action( 'sentbox' ) && bp_is_current_action( 'notices' ) ) : ?>
+
+      <a class="btn btn-primary" href="#" id="mark_as_read"><?php _e('Mark as Read', 'buddypress') ?></a> &nbsp;
+      <a class="btn btn-primary" href="#" id="mark_as_unread"><?php _e('Mark as Unread', 'buddypress') ?></a> &nbsp;
+
+    <?php endif; ?>
+
+    <a class="btn btn-primary" href="#" id="delete_<?php echo bp_current_action(); ?>_messages"><?php _e( 'Delete Selected', 'buddypress' ); ?></a> &nbsp;
+  </div>
+
+<?php
+}
+
+function shoestrap_bp_directory_forums_search_form() {
+  global $bp;
+
+  $default_search_value = bp_get_search_default_text( 'forums' );
+  $search_value = !empty( $_REQUEST['fs'] ) ? stripslashes( $_REQUEST['fs'] ) : $default_search_value;  ?>
+
+  <form action="" method="get" id="search-forums-form">
+    <div class="input-append">
+      <input type="text" name="s" id="forums_search" placeholder="<?php echo esc_attr( $search_value ); ?>" />
+      <input class="btn" type="submit" id="forums_search_submit" name="forums_search_submit" value="<?php _e( 'Search', 'buddypress' ); ?>" />
+    </div>
+  </form>
+
+<?php
+}

@@ -11,9 +11,6 @@ get_header( 'buddypress' ); ?>
 
 	<?php do_action( 'bp_before_directory_blogs_page' ); ?>
 
-	<div id="content">
-		<div class="padder">
-
 		<?php do_action( 'bp_before_directory_blogs' ); ?>
 
 		<form action="" method="post" id="blogs-directory-form" class="dir-form">
@@ -78,9 +75,6 @@ get_header( 'buddypress' ); ?>
 		</form><!-- #blogs-directory-form -->
 
 		<?php do_action( 'bp_after_directory_blogs' ); ?>
-
-		</div><!-- .padder -->
-	</div><!-- #content -->
 
 	<?php do_action( 'bp_after_directory_blogs_page' ); ?>
 

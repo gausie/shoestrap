@@ -25,9 +25,9 @@
 
 			<div id="item-nav">
 				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
-					<ul>
+					<ul class="nav nav-tabs">
 
-						<?php bp_get_displayed_user_nav(); ?>
+						<?php shoestrap_bp_get_displayed_user_nav(); ?>
 
 						<?php do_action( 'bp_member_options_nav' ); ?>
 
@@ -59,4 +59,5 @@
 
 			<?php do_action( 'bp_after_member_plugin_template' ); ?>
 
-<?php get_footer( 'buddypress' );
+<?php get_sidebar( 'buddypress' ); ?>
+<?php get_footer( 'buddypress' ); ?>

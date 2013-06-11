@@ -13,20 +13,17 @@
 
 	<?php do_action( 'bp_before_directory_forums_page' ); ?>
 
-	<div id="content">
-		<div class="padder">
-
 			<?php do_action( 'bp_before_directory_forums' ); ?>
 
 			<form action="" method="post" id="forums-search-form" class="dir-form">
 
-				<h3><?php _e( 'Forums Directory', 'buddypress' ); ?><?php if ( is_user_logged_in() ) : ?> &nbsp;<a class="button show-hide-new" href="#new-topic" id="new-topic-button"><?php _e( 'New Topic', 'buddypress' ); ?></a><?php endif; ?></h3>
+				<h3><?php _e( 'Forums Directory', 'buddypress' ); ?><?php if ( is_user_logged_in() ) : ?> &nbsp;<a class="pull-right btn btn-primary button show-hide-new" href="#new-topic" id="new-topic-button"><?php _e( 'New Topic', 'buddypress' ); ?></a><?php endif; ?></h3>
 
 				<?php do_action( 'bp_before_directory_forums_content' ); ?>
 
 				<div id="forums-dir-search" class="dir-search" role="search">
 
-					<?php bp_directory_forums_search_form(); ?>
+					<?php shoestrap_bp_directory_forums_search_form(); ?>
 
 				</div>
 			</form>
@@ -35,19 +32,15 @@
 
 			<form action="" method="post" id="forums-directory-form" class="dir-form">
 
-				<div class="item-list-tabs" role="navigation">
-					<ul>
-						<li class="selected" id="forums-all"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_forums_root_slug() ); ?>"><?php printf( __( 'All Topics <span>%s</span>', 'buddypress' ), bp_get_forum_topic_count() ); ?></a></li>
+				<div class="item-list-tabs btn-group" role="navigation">
+					<a id="forums-all" class="active selected btn" href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_forums_root_slug() ); ?>"><?php printf( __( 'All Topics <span>%s</span>', 'buddypress' ), bp_get_forum_topic_count() ); ?></a>
+					<?php if ( is_user_logged_in() && bp_get_forum_topic_count_for_user( bp_loggedin_user_id() ) ) : ?>
+					  <a id="forums-personal" class="btn" href="<?php echo trailingslashit( bp_loggedin_user_domain() . bp_get_forums_slug() . '/topics' ); ?>"><?php printf( __( 'My Topics <span>%s</span>', 'buddypress' ), bp_get_forum_topic_count_for_user( bp_loggedin_user_id() ) ); ?></a>
 
-						<?php if ( is_user_logged_in() && bp_get_forum_topic_count_for_user( bp_loggedin_user_id() ) ) : ?>
+					<?php endif; ?>
 
-							<li id="forums-personal"><a href="<?php echo trailingslashit( bp_loggedin_user_domain() . bp_get_forums_slug() . '/topics' ); ?>"><?php printf( __( 'My Topics <span>%s</span>', 'buddypress' ), bp_get_forum_topic_count_for_user( bp_loggedin_user_id() ) ); ?></a></li>
+					<?php do_action( 'bp_forums_directory_group_types' ); ?>
 
-						<?php endif; ?>
-
-						<?php do_action( 'bp_forums_directory_group_types' ); ?>
-
-					</ul>
 				</div>
 
 				<div class="item-list-tabs" id="subnav" role="navigation">
@@ -56,16 +49,18 @@
 						<?php do_action( 'bp_forums_directory_group_sub_types' ); ?>
 
 						<li id="forums-order-select" class="last filter">
+						  <div class="input-prepend">
 
-							<label for="forums-order-by"><?php _e( 'Order By:', 'buddypress' ); ?></label>
-							<select id="forums-order-by">
-								<option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
-								<option value="popular"><?php _e( 'Most Posts', 'buddypress' ); ?></option>
-								<option value="unreplied"><?php _e( 'Unreplied', 'buddypress' ); ?></option>
-
-								<?php do_action( 'bp_forums_directory_order_options' ); ?>
-
-							</select>
+  							<span class="add-on"><?php _e( 'Order By:', 'buddypress' ); ?></span>
+    							<select id="forums-order-by">
+    								<option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
+    								<option value="popular"><?php _e( 'Most Posts', 'buddypress' ); ?></option>
+    								<option value="unreplied"><?php _e( 'Unreplied', 'buddypress' ); ?></option>
+    
+    								<?php do_action( 'bp_forums_directory_order_options' ); ?>
+    
+    							</select>
+    					</div>
 						</li>
 					</ul>
 				</div>
@@ -154,9 +149,6 @@
 			<?php do_action( 'bp_after_new_topic_form' ); ?>
 
 			<?php do_action( 'bp_after_directory_forums_content' ); ?>
-
-		</div><!-- .padder -->
-	</div><!-- #content -->
 
 	<?php do_action( 'bp_after_directory_forums_page' ); ?>
 

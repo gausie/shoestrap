@@ -33,9 +33,9 @@
 
 				<?php do_action( 'bp_friend_requests_item' ); ?>
 
-				<div class="action">
-					<a class="button accept" href="<?php bp_friend_accept_request_link(); ?>"><?php _e( 'Accept', 'buddypress' ); ?></a> &nbsp;
-					<a class="button reject" href="<?php bp_friend_reject_request_link(); ?>"><?php _e( 'Reject', 'buddypress' ); ?></a>
+				<div class="action btn-group">
+					<a class="button accept btn btn-small" href="<?php bp_friend_accept_request_link(); ?>"><?php _e( 'Accept', 'buddypress' ); ?></a> &nbsp;
+					<a class="button reject btn btn-small" href="<?php bp_friend_reject_request_link(); ?>"><?php _e( 'Reject', 'buddypress' ); ?></a>
 
 					<?php do_action( 'bp_friend_requests_item_action' ); ?>
 				</div>
